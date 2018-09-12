@@ -4,6 +4,7 @@ import * as fs from "fs"
 import { DangerContext } from "../../runner/Dangerfile"
 import { debug } from "../../debug"
 
+import "@babel/polyfill"
 import compile from "./utils/transpiler"
 import cleanDangerfile from "./utils/cleanDangerfile"
 import resultsForCaughtError from "./utils/resultsForCaughtError"

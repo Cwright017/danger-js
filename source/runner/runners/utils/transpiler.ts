@@ -21,19 +21,18 @@ export const checkForNodeModules = () => {
   }
 
   try {
-    require.resolve("babel-core") // tslint:disable-line
-    require("babel-polyfill") // tslint:disable-line
+    require.resolve("@babel/core") // tslint:disable-line
     hasBabel = true
 
     try {
-      require.resolve("babel-plugin-transform-typescript") // tslint:disable-line
+      require.resolve("@babel/plugin-transform-typescript") // tslint:disable-line
       hasBabelTypeScript = true
     } catch (e) {
       d("Does not have Babel 7 TypeScript set up")
     }
 
     try {
-      require.resolve("babel-plugin-transform-flow-strip-types") // tslint:disable-line
+      require.resolve("@babel/transform-flow-strip-types") // tslint:disable-line
       hasFlow = true
     } catch (e) {
       d("Does not have Flow set up")
@@ -76,7 +75,7 @@ const sanitizeTSConfig = (config: any) => {
 }
 
 export const babelify = (content: string, filename: string, extraPlugins: string[]): string => {
-  const babel = require("babel-core") // tslint:disable-line
+  const babel = require("@babel/core") // tslint:disable-line
   if (!babel.transform) {
     return content
   }

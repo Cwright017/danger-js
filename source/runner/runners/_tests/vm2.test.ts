@@ -177,7 +177,7 @@ runners.forEach(run => {
         ])
       })
 
-      it("in babel it can execute async/await scheduled functions", async () => {
+      it.only("in babel it can execute async/await scheduled functions", async () => {
         // this test takes *forever* because of babel-polyfill being required
         const context = await setupDangerfileContext()
         const runtime = await exec.runner.createDangerfileRuntimeEnvironment(context)
@@ -186,6 +186,9 @@ runners.forEach(run => {
           undefined,
           runtime
         )
+
+        console.log("HERE: ", results)
+
         expect(results.warnings).toEqual([
           {
             message: "Async Function",
